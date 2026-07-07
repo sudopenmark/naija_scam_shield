@@ -1,0 +1,186 @@
+================================================================================
+  NAIJA SCAM SHIELD — ANDROID BUILD NOTES (Android 6.0+ / API 23+)
+================================================================================
+
+  This project is configured to produce an APK that:
+
+    • INSTALLS on devices running Android 6.0 "Marshmallow" (API 23,
+      released 2015) and every version after it.
+    • TARGETS Android 14 (API 34) at build/compile time, which is the
+      minimum target SDK Google Play currently requires for new or
+      updated app submissions (policy effective since August 2024).
+
+  These two numbers are not the same thing and people often confuse
+  them:
+
+    min_sdk_version (23)     → the OLDEST Android version the APK
+                                will actually install/run on.
+    target_sdk_version (34)  → the API level the app is BUILT and
+                                TESTED against; required to be recent
+                                for Play Store listing eligibility.
+    compile_sdk_version (34) → the SDK version Gradle compiles
+                                against; must be >= target_sdk_version.
+
+  All three are already set in pyproject.toml under:
+    [tool.briefcase.app.naijascamshield.android]
+
+--------------------------------------------------------------------------------
+  WHY ANDROID 6.0 (API 23) AND NOT LOWER
+--------------------------------------------------------------------------------
+
+  • Kivy 2.3+ (the mobile UI framework used here) officially supports
+    API 21+ in principle, but python-for-android's current toolchain
+    and several native dependencies (OpenSSL, SQLite bindings) are
+    only reliably tested from API 23 onward.
+
+  • Google's own Play Console has stopped accepting min_sdk_version
+    below 21 for new apps, and most camera/QR libraries this app uses
+    (ZXing-based scanning) assume at least API 23 runtime permissions
+    behavior (runtime permission requests were introduced in API 23).
+
+  • Going lower than API 23 would require disabling the QR camera
+    scanner's modern permission-request flow and is not recommended.
+
+  If you have a specific business requirement to go lower (e.g. API
+  21 / Android 5.0), it is possible but requires additional testing
+  of the camera-permission code path in ui/mobile_app.py — change
+  min_sdk_version in pyproject.toml and re-test thoroughly on a
+  real low-API device or emulator before shipping.
+
+--------------------------------------------------------------------------------
+  BUILDING THE APK (full steps)
+--------------------------------------------------------------------------------
+
+  These steps must run on a desktop machine (Windows, Linux, or
+  macOS) with internet access. They CANNOT run inside a sandboxed
+  environment without network/SDK access.
+
+  1. Install prerequisites:
+
+       Java 17 JDK            (Eclipse Temurin recommended)
+       Android Studio         (provides SDK + NDK + platform-tools)
+       Python 3.12+
+
+  2. In Android Studio's SDK Manager, install:
+
+       Android SDK Platform 34          (target/compile SDK)
+       Android SDK Platform 23          (min SDK, for testing on
+                                          old-device emulator images)
+       Android SDK Build-Tools 34.0.0
+       Android NDK (side by side) 25.x
+       Android SDK Command-line Tools
+
+  3. Set environment variables:
+
+       ANDROID_HOME=/path/to/Android/Sdk
+       JAVA_HOME=/path/to/jdk-17
+
+  4. From the project root:
+
+       python -m venv venv
+       source venv/bin/activate        (or venv\Scripts\activate on Windows)
+       pip install -r requirements.txt
+       pip install briefcase kivy
+
+  5. Create and build:
+
+       briefcase create android
+       briefcase build android
+
+  6. The signed/unsigned debug APK will be at:
+
+       android/gradle/app/build/outputs/apk/debug/app-debug.apk
+
+  7. Verify the min/target SDK were applied correctly:
+
+       Open android/gradle/app/build.gradle and confirm:
+
+         defaultConfig {
+             minSdkVersion 23
+             targetSdkVersion 34
+             compileSdkVersion 34
+         }
+
+     (Briefcase injects these automatically from pyproject.toml's
+     min_sdk_version / target_sdk_version / compile_sdk_version
+     fields and the build_gradle_extra_content block — but always
+     spot-check the generated build.gradle after the first
+     `briefcase create android`, since Briefcase versions vary in
+     how strictly they honor every pyproject.toml field.)
+
+--------------------------------------------------------------------------------
+  TESTING ON AN ANDROID 6.0 DEVICE / EMULATOR
+--------------------------------------------------------------------------------
+
+  1. In Android Studio's Virtual Device Manager, create a new
+     emulator using a system image for "Marshmallow" — API 23.
+
+  2. Start the emulator.
+
+  3. Install the APK:
+
+       adb install android/gradle/app/build/outputs/apk/debug/app-debug.apk
+
+  4. Launch "Naija Scam Shield" from the emulator's app drawer and
+     confirm:
+       - The app launches without crashing
+       - URL scanning works
+       - Camera permission prompt appears correctly when opening the
+         QR scanner screen (API 23 introduced runtime permissions —
+         this is the most likely thing to break on old API levels)
+
+--------------------------------------------------------------------------------
+  PRODUCING A RELEASE (SIGNED) APK / AAB FOR PLAY STORE OR DIRECT SALE
+--------------------------------------------------------------------------------
+
+  The steps above produce a DEBUG APK suitable for testing and direct
+  side-loading. For commercial distribution (Play Store or your own
+  storefront), you need a signed release build:
+
+  1. Generate a signing keystore (do this once, store it securely —
+     losing it means you can never update the app again under the
+     same package ID):
+
+       keytool -genkey -v -keystore naija-scam-shield-release.jks \
+           -keyalg RSA -keysize 2048 -validity 10000 \
+           -alias naijascamshield
+
+  2. Configure signing in android/gradle/app/build.gradle (Briefcase
+     generates a template — follow Briefcase's documentation for the
+     exact location to add signingConfigs in your generated project):
+
+       https://briefcase.readthedocs.io/en/stable/how-to/publishing/android.html
+
+  3. Build the release bundle:
+
+       briefcase build android -- --release
+
+     or directly via Gradle inside android/gradle:
+
+       ./gradlew bundleRelease      (produces .aab for Play Store)
+       ./gradlew assembleRelease    (produces signed .apk for direct sale)
+
+  4. For DIRECT COMMERCIAL SALE outside the Play Store (since this is
+     a commercially licensed product per LICENSE), distribute the
+     signed .apk directly to paying customers along with installation
+     instructions from SETUP_GUIDE.txt Section 6-G (side-loading).
+
+--------------------------------------------------------------------------------
+  COMMERCIAL LICENSING REMINDER
+--------------------------------------------------------------------------------
+
+  This APK is covered by the commercial LICENSE in this repository,
+  not an open-source license. Before selling or distributing it:
+
+    1. Read THIRD-PARTY-LICENSES.txt — the Android build uses Kivy
+       (MIT licensed), which has NO PyQt6-style GPL restriction, so
+       the Android APK is generally safe to sell closed-source as-is.
+
+    2. The desktop build (PyQt6) has a separate GPL/commercial
+       consideration — see THIRD-PARTY-LICENSES.txt — but this does
+       NOT affect the Android APK, since Android uses Kivy instead.
+
+    3. Have LICENSE reviewed by a qualified attorney before your
+       first commercial sale.
+
+================================================================================

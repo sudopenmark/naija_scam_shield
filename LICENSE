@@ -1,0 +1,254 @@
+================================================================================
+  NAIJA SCAM SHIELD — COMMERCIAL SOFTWARE LICENSE AGREEMENT
+================================================================================
+
+  Product   : Naija Scam Shield (desktop and Android applications,
+              including all associated source code, object code,
+              documentation, threat-detection rule sets, and the
+              Nigerian official-domain registry distributed with it)
+  Version   : 1.0.0
+  Licensor  : Joshua Akadri ("Licensor")
+  Contact   : dev@naijascamshield.ng
+  GitHub    : https://github.com/sudopenmark
+
+  Copyright (c) 2025 Joshua Akadri. All rights reserved.
+
+  NOTICE: This is a template commercial license. It is provided as a
+  starting point and does NOT constitute legal advice. Before
+  distributing this software commercially, have this document
+  reviewed and finalized by a licensed attorney in your jurisdiction.
+
+--------------------------------------------------------------------------------
+  1. GRANT OF LICENSE
+--------------------------------------------------------------------------------
+
+  1.1  Subject to the terms of this Agreement and payment of all
+       applicable fees, Licensor grants the purchaser or authorized
+       licensee ("Licensee") a non-exclusive, non-transferable,
+       revocable license to:
+
+       (a) Install and use the compiled application (Windows .exe,
+           Linux binary/AppImage, or Android .apk) on devices owned
+           or controlled by Licensee, up to the number of seats or
+           installations specified in the applicable order or
+           license key; and
+
+       (b) If Licensee has purchased a Source Code License, modify
+           the source code solely for Licensee's own internal use
+           or for integration into Licensee's own end-user product,
+           subject to Section 4 (Restrictions) below.
+
+  1.2  License tiers (select applicable tier per purchase order):
+
+       PERSONAL / SINGLE-USER   — 1 device, no redistribution
+       BUSINESS                — up to 25 devices within one
+                                  organization, no redistribution
+       ENTERPRISE               — unlimited internal devices within
+                                  one organization, no redistribution
+       OEM / REDISTRIBUTION     — right to embed, rebrand, or
+                                  redistribute the compiled app as
+                                  part of Licensee's own product,
+                                  subject to a separate signed
+                                  OEM agreement and royalty terms
+       SOURCE CODE LICENSE      — includes rights under Section 1.1(b)
+
+--------------------------------------------------------------------------------
+  2. OWNERSHIP
+--------------------------------------------------------------------------------
+
+  2.1  This software is licensed, not sold. Licensor retains all
+       right, title, and interest in and to the software, including
+       all intellectual property rights therein, including but not
+       limited to:
+
+       - All source code, object code, and compiled binaries
+       - The Nigerian official-domain verification registry
+       - The threat-detection rule sets and pattern libraries
+       - The "Naija Scam Shield" name, logo, and associated branding
+       - All documentation, architecture diagrams, and user guides
+
+  2.2  No rights are granted to Licensee except as expressly stated
+       in this Agreement. All rights not expressly granted are
+       reserved by Licensor.
+
+--------------------------------------------------------------------------------
+  3. THIRD-PARTY COMPONENTS
+--------------------------------------------------------------------------------
+
+  3.1  This software incorporates open-source third-party libraries,
+       including but not limited to PyQt6 (GPL v3 / commercial dual
+       license from Riverbank Computing), Kivy (MIT License),
+       requests (Apache 2.0), reportlab (BSD-derived), OpenCV (Apache
+       2.0), pyzbar (MIT), and Pillow (HPND/MIT-CMU License).
+
+  3.2  Licensee is responsible for independently reviewing the
+       license terms of each third-party component before commercial
+       distribution. In particular:
+
+       - PyQt6 is dual-licensed under GPL v3 and a commercial license.
+         Commercial/closed-source distribution of an application built
+         with PyQt6 REQUIRES a commercial PyQt6 license purchased
+         separately from Riverbank Computing
+         (https://www.riverbankcomputing.com/commercial/pyqt).
+         Failure to obtain this license before commercial distribution
+         of the desktop build is Licensee's sole responsibility and
+         Licensor disclaims all liability arising from non-compliance.
+
+       - Kivy, requests, reportlab, and other Apache/MIT/BSD-licensed
+         dependencies generally permit commercial use with attribution
+         retained in NOTICE/THIRD-PARTY-LICENSES files. See the
+         "THIRD-PARTY-LICENSES.txt" file distributed with this software
+         for the complete list and exact license texts.
+
+  3.3  This Agreement does not grant, modify, or waive the license
+       terms of any third-party component.
+
+--------------------------------------------------------------------------------
+  4. RESTRICTIONS
+--------------------------------------------------------------------------------
+
+  Licensee shall NOT, except where the applicable license tier
+  expressly permits otherwise in a signed agreement:
+
+  4.1  Redistribute, sublicense, sell, rent, lease, or lend the
+       software (compiled or source) to any third party;
+
+  4.2  Reverse engineer, decompile, or disassemble the compiled
+       application, except to the extent such restriction is
+       prohibited by applicable law;
+
+  4.3  Remove, obscure, or alter any copyright notice, trademark,
+       or proprietary legend from the software, including the
+       "Naija Scam Shield" branding and the Licensor attribution
+       within the application's About/Settings screen;
+
+  4.4  Use the software, the Nigerian official-domain registry, or
+       the threat-detection rule sets to build a directly competing
+       commercial scam-detection product without a separate OEM
+       license from Licensor;
+
+  4.5  Use the software for any unlawful purpose, including but not
+       limited to facilitating fraud, phishing, or unauthorized
+       access to computer systems;
+
+  4.6  Exceed the number of licensed installations/seats purchased
+       without obtaining additional licenses.
+
+--------------------------------------------------------------------------------
+  5. FEES AND PAYMENT
+--------------------------------------------------------------------------------
+
+  5.1  License fees, renewal terms, and payment schedules are as set
+       out in the applicable order form, invoice, or purchase
+       agreement executed between Licensor and Licensee.
+
+  5.2  Unless otherwise stated in writing, licenses are perpetual for
+       the version purchased; ongoing signature/database updates and
+       technical support are subject to a separate maintenance fee
+       renewable annually.
+
+  5.3  All fees are non-refundable except as required by applicable
+       consumer protection law or as otherwise agreed in writing.
+
+--------------------------------------------------------------------------------
+  6. WARRANTY DISCLAIMER
+--------------------------------------------------------------------------------
+
+  6.1  THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT
+       WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+       LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+       PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+  6.2  Licensor does not warrant that the software will correctly
+       identify every fraudulent website, nor that every site flagged
+       as suspicious is in fact fraudulent. The risk-scoring engine is
+       a heuristic aid and must not be relied upon as the sole basis
+       for any financial, legal, or security decision.
+
+  6.3  Licensor is not a financial institution, law enforcement
+       agency, or regulator, and the software's outputs do not
+       constitute legal, financial, or investigative advice.
+
+--------------------------------------------------------------------------------
+  7. LIMITATION OF LIABILITY
+--------------------------------------------------------------------------------
+
+  7.1  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT
+       SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+       CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED
+       TO LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR
+       RELATED TO THE USE OF, OR INABILITY TO USE, THE SOFTWARE,
+       EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+       DAMAGES.
+
+  7.2  LICENSOR'S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR
+       RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE TOTAL LICENSE
+       FEES ACTUALLY PAID BY LICENSEE TO LICENSOR IN THE TWELVE (12)
+       MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM.
+
+--------------------------------------------------------------------------------
+  8. TERM AND TERMINATION
+--------------------------------------------------------------------------------
+
+  8.1  This Agreement is effective upon Licensee's acceptance and
+       continues until terminated as set out herein.
+
+  8.2  Licensor may terminate this Agreement immediately upon written
+       notice if Licensee breaches any material term and fails to
+       cure such breach within fourteen (14) days of notice.
+
+  8.3  Upon termination, Licensee must cease all use of the software
+       and destroy or return all copies, including compiled binaries
+       and any licensed source code, within thirty (30) days.
+
+--------------------------------------------------------------------------------
+  9. SUPPORT AND UPDATES
+--------------------------------------------------------------------------------
+
+  9.1  Bug-fix updates, security patches, and scam-signature database
+       updates may be provided at Licensor's discretion during the
+       support period specified in the applicable order form.
+
+  9.2  Licensor is under no obligation to provide new major versions,
+       features, or platform ports (e.g., iOS) under an existing
+       license without a separate agreement.
+
+--------------------------------------------------------------------------------
+  10. GOVERNING LAW
+--------------------------------------------------------------------------------
+
+  10.1 This Agreement shall be governed by and construed in
+       accordance with the laws of the Federal Republic of Nigeria,
+       without regard to its conflict-of-law principles, unless a
+       different governing law is specified in a signed order form.
+
+  10.2 Any dispute arising under this Agreement shall be subject to
+       the exclusive jurisdiction of the courts of Nigeria, unless
+       otherwise agreed in writing by both parties.
+
+--------------------------------------------------------------------------------
+  11. ENTIRE AGREEMENT
+--------------------------------------------------------------------------------
+
+  This document, together with any signed order form or purchase
+  agreement, constitutes the entire agreement between the parties
+  regarding the software and supersedes all prior or contemporaneous
+  understandings regarding such subject matter.
+
+--------------------------------------------------------------------------------
+  CONTACT FOR LICENSING INQUIRIES
+--------------------------------------------------------------------------------
+
+  Joshua Akadri
+  Email   : dev@naijascamshield.ng
+  GitHub  : https://github.com/sudopenmark
+
+  To purchase a commercial license, request an OEM/redistribution
+  agreement, or obtain a signed copy of this Agreement reviewed by
+  counsel, contact the Licensor at the address above.
+
+================================================================================
+  This is a TEMPLATE provided for convenience. It is not a substitute
+  for legal advice. Have a qualified attorney review and finalize
+  this license before commercial sale or distribution of the software.
+================================================================================

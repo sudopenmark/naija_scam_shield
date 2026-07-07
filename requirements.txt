@@ -1,0 +1,37 @@
+# Naija Scam Shield — Python Dependencies
+# Author: Joshua Akadri
+# Python 3.12+
+#
+# Install all:   pip install -r requirements.txt
+# Minimal (no PDF/QR):  pip install PyQt6 requests python-whois
+
+# ── Core GUI ──────────────────────────────────────────────────────────────────
+PyQt6>=6.6.0
+PyQt6-Qt6>=6.6.0
+PyQt6-sip>=13.6.0
+
+# ── HTTP & Security Scanning ─────────────────────────────────────────────────
+requests>=2.31.0
+urllib3>=2.0.0
+certifi>=2024.2.2
+
+# ── WHOIS Domain Age ─────────────────────────────────────────────────────────
+python-whois>=0.9.4
+
+# ── QR Code / Barcode Scanning ───────────────────────────────────────────────
+# Camera-based scanning (desktop):
+opencv-python>=4.9.0.80
+pyzbar>=0.1.9
+
+# Image file QR scanning:
+Pillow>=10.2.0
+
+# ── PDF Report Generation ─────────────────────────────────────────────────────
+reportlab>=4.1.0
+
+# ── Database Encryption (optional) ───────────────────────────────────────────
+# sqlcipher3>=0.5.2     # Uncomment for encrypted SQLite (requires libsqlcipher)
+
+# ── Build Tools (not imported at runtime) ────────────────────────────────────
+# pyinstaller>=6.4.0    # Windows EXE / Linux binary (install separately)
+# briefcase>=0.3.17     # Android APK / cross-platform (install separately)

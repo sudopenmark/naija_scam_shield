@@ -1,0 +1,73 @@
+# AppImageBuilder.yml — Linux AppImage build recipe
+# Author: Joshua Akadri | GitHub: sudopenmark
+#
+# Prerequisites:
+#   pip install appimage-builder
+#   make build-linux   (produces dist/NaijaScamShield first)
+#
+# Build:
+#   appimage-builder --recipe AppImageBuilder.yml
+
+version: 1
+
+AppDir:
+  path: ./AppDir
+
+  app_info:
+    id: ng.naijascamshield.app
+    name: NaijaScamShield
+    icon: naijascamshield
+    version: "1.0.0"
+    exec: usr/bin/NaijaScamShield
+    exec_args: $@
+
+  apt:
+    arch: amd64
+    sources:
+      - sourceline: "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse"
+        key_url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3b4fe6acc0b21f32"
+
+    include:
+      - libzbar0
+      - libzbar-dev
+      - libgl1-mesa-glx
+      - libglib2.0-0
+      - libxcb1
+      - libxcb-icccm4
+      - libxcb-image0
+      - libxcb-keysyms1
+      - libxcb-randr0
+      - libxcb-render-util0
+      - libxcb-shape0
+      - libxcb-util1
+      - libxcb-xinerama0
+      - libxcb-xkb1
+      - libxkbcommon-x11-0
+      - libfontconfig1
+      - libfreetype6
+      - libdbus-1-3
+
+    exclude:
+      - multiarch-support
+
+  files:
+    include:
+      - dist/NaijaScamShield
+      - assets/
+    exclude:
+      - "*.pyc"
+      - "__pycache__"
+
+  test:
+    debian:
+      image: ubuntu:20.04
+      command: "/opt/AppImage/usr/bin/NaijaScamShield --version"
+      use_host_x: true
+      env:
+        - DISPLAY=:0
+
+AppImage:
+  arch: x86_64
+  update-information: "gh-releases-zsync|sudopenmark|naija-scam-shield|latest|NaijaScamShield-*.AppImage.zsync"
+  sign-key: None
+  name: "NaijaScamShield-1.0.0-x86_64"

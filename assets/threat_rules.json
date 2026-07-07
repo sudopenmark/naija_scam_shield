@@ -1,0 +1,183 @@
+{
+  "_meta": {
+    "title": "Naija Scam Shield — Example Threat Detection Rules & Datasets",
+    "author": "Joshua Akadri",
+    "version": "1.0.0",
+    "description": "Example rules, known scam domains, and detection patterns for Nigerian cyber threats.",
+    "updated": "2025-01-01"
+  },
+
+  "known_scam_domains": [
+    { "domain": "cbn-reward-portal.com",         "category": "GOVT_IMPERSONATION",  "verdict": "CBN impersonation site collecting BVN/NIN" },
+    { "domain": "verify-gtbank-account.com",      "category": "FAKE_BANK",           "verdict": "GTBank phishing — steals internet banking credentials" },
+    { "domain": "opay-promo-bonus.com",           "category": "FAKE_FINTECH",        "verdict": "OPay fake promo page — credential harvesting" },
+    { "domain": "nin-registration-portal.online", "category": "GOVT_IMPERSONATION",  "verdict": "NIN phishing portal — collects identity data" },
+    { "domain": "efcc-arrest-warrant.com",        "category": "GOVT_IMPERSONATION",  "verdict": "EFCC scare scam — extortion via fake arrest warrants" },
+    { "domain": "bitcoin-investment-nigeria.com", "category": "FAKE_CRYPTO",         "verdict": "Crypto Ponzi scheme — guaranteed returns fraud" },
+    { "domain": "double-your-money-ng.com",       "category": "INVESTMENT_FRAUD",    "verdict": "Investment Ponzi scheme" },
+    { "domain": "jumia-delivery-promo.click",     "category": "FAKE_DELIVERY",       "verdict": "Jumia delivery impersonation — package fee fraud" },
+    { "domain": "free-airtime-mtn-ng.xyz",        "category": "BRAND_IMPERSONATION", "verdict": "MTN fake free airtime campaign — credential theft" },
+    { "domain": "palmpay-cashback-reward.top",    "category": "FAKE_FINTECH",        "verdict": "PalmPay cashback phishing page" },
+    { "domain": "moniepoint-bonus-verification.com","category": "FAKE_FINTECH",      "verdict": "Moniepoint fake bonus — harvests login credentials" },
+    { "domain": "kuda-bank-verify.online",        "category": "FAKE_FINTECH",        "verdict": "Kuda Bank phishing" },
+    { "domain": "bet9ja-winning-prediction.com",  "category": "FAKE_BETTING",        "verdict": "Bet9ja fake prediction — subscription fraud" },
+    { "domain": "forex-daily-profit-nigeria.com", "category": "INVESTMENT_FRAUD",    "verdict": "Forex trading scam — guaranteed profit fraud" },
+    { "domain": "play-to-earn-naira.com",         "category": "FAKE_CRYPTO",         "verdict": "Play-to-earn Ponzi — fake NFT/crypto game" },
+    { "domain": "jamb-portal-2025.online",        "category": "GOVT_IMPERSONATION",  "verdict": "JAMB fake portal — collects registration fees" },
+    { "domain": "waec-result-checker-ng.xyz",     "category": "GOVT_IMPERSONATION",  "verdict": "WAEC fake result checker — payment fraud" },
+    { "domain": "first-bank-alert-verify.com",    "category": "FAKE_BANK",           "verdict": "FirstBank phishing via fake transaction alert" },
+    { "domain": "zenith-bank-secure-login.com",   "category": "FAKE_BANK",           "verdict": "ZenithBank phishing — login credential theft" },
+    { "domain": "accessbank-ng-verify.com",       "category": "FAKE_BANK",           "verdict": "Access Bank phishing" }
+  ],
+
+  "url_pattern_rules": [
+    {
+      "pattern": "verify.*account|account.*verify",
+      "description": "URL contains account verification language — common in phishing",
+      "severity": "high",
+      "score_impact": 18
+    },
+    {
+      "pattern": "bvn.*verify|bvn.*update|verify.*bvn",
+      "description": "URL requests BVN verification — BVN is highly sensitive",
+      "severity": "critical",
+      "score_impact": 25
+    },
+    {
+      "pattern": "nin.*verify|nin.*portal|nin.*registration",
+      "description": "NIN portal impersonation — collects national identity numbers",
+      "severity": "high",
+      "score_impact": 20
+    },
+    {
+      "pattern": "cbn.*portal|cbn.*reward|cbn.*claim",
+      "description": "CBN impersonation — Central Bank does not give portal rewards",
+      "severity": "critical",
+      "score_impact": 30
+    },
+    {
+      "pattern": "free.*airtime|airtime.*free",
+      "description": "Free airtime offers — almost always scam campaigns",
+      "severity": "high",
+      "score_impact": 18
+    },
+    {
+      "pattern": "investment.*daily.*profit|daily.*profit.*guarantee",
+      "description": "Guaranteed daily investment returns — classic Ponzi language",
+      "severity": "critical",
+      "score_impact": 30
+    },
+    {
+      "pattern": "double.*your.*money|money.*double",
+      "description": "Money doubling scam",
+      "severity": "critical",
+      "score_impact": 35
+    },
+    {
+      "pattern": "bitcoin.*investment.*nigeria|crypto.*earn.*nigeria",
+      "description": "Nigerian crypto investment scam",
+      "severity": "high",
+      "score_impact": 25
+    },
+    {
+      "pattern": "efcc.*arrest|police.*warrant|court.*order",
+      "description": "Fake law enforcement threat — extortion/scare tactic",
+      "severity": "critical",
+      "score_impact": 35
+    },
+    {
+      "pattern": "palmpay.*bonus|opay.*promo|kuda.*cashback",
+      "description": "Fintech impersonation bonus — harvests app credentials",
+      "severity": "high",
+      "score_impact": 22
+    }
+  ],
+
+  "suspicious_tld_rules": [
+    { "tld": ".xyz",    "reason": "Extremely cheap, heavily abused in phishing", "score_impact": 12 },
+    { "tld": ".top",    "reason": "Frequently used in spam and phishing", "score_impact": 10 },
+    { "tld": ".click",  "reason": "Common in deceptive click-bait URLs", "score_impact": 12 },
+    { "tld": ".loan",   "reason": "Used in fake loan offer scams", "score_impact": 15 },
+    { "tld": ".gq",     "reason": "Free TLD heavily abused by scammers", "score_impact": 15 },
+    { "tld": ".ml",     "reason": "Free TLD heavily abused", "score_impact": 15 },
+    { "tld": ".cf",     "reason": "Free TLD heavily abused", "score_impact": 15 },
+    { "tld": ".tk",     "reason": "Free TLD, historically #1 for scam sites", "score_impact": 18 },
+    { "tld": ".online", "reason": "Commonly used in fake portals", "score_impact": 8 },
+    { "tld": ".site",   "reason": "Common in temporary scam sites", "score_impact": 8 },
+    { "tld": ".icu",    "reason": "Abused by phishing campaigns", "score_impact": 10 },
+    { "tld": ".pw",     "reason": "Originally Palau TLD, now scam-heavy", "score_impact": 12 }
+  ],
+
+  "domain_age_rules": [
+    {
+      "max_age_days": 30,
+      "verdict": "Very New Domain",
+      "description": "Domain registered within last 30 days — major red flag",
+      "severity": "critical",
+      "score_impact": 30
+    },
+    {
+      "max_age_days": 90,
+      "verdict": "New Domain",
+      "description": "Domain registered within last 90 days",
+      "severity": "high",
+      "score_impact": 20
+    },
+    {
+      "max_age_days": 365,
+      "verdict": "Young Domain",
+      "description": "Domain less than 1 year old",
+      "severity": "medium",
+      "score_impact": 10
+    }
+  ],
+
+  "nigerian_scam_categories": {
+    "FAKE_BANK": {
+      "description": "Phishing sites impersonating Nigerian banks",
+      "common_targets": ["GTBank", "Zenith Bank", "First Bank", "Access Bank", "UBA"],
+      "tactics": ["Fake transaction alerts", "Fake login portals", "BVN verification scams"],
+      "indicators": ["bank name in domain", "verify/update in URL", "new domain", "free SSL cert"],
+      "report_to": ["efcc.gov.ng", "cbn.gov.ng", "nibss-plc.com.ng"]
+    },
+    "FAKE_FINTECH": {
+      "description": "Sites impersonating popular Nigerian fintech apps",
+      "common_targets": ["OPay", "Kuda", "PalmPay", "Moniepoint", "PiggyVest"],
+      "tactics": ["Fake cashback/bonus campaigns", "Fake app login pages"],
+      "indicators": ["fintech name in domain", "promo/bonus/cashback in URL"],
+      "report_to": ["efcc.gov.ng"]
+    },
+    "INVESTMENT_FRAUD": {
+      "description": "Ponzi schemes and guaranteed return investment fraud",
+      "common_tactics": ["Daily profit promises", "Referral pyramids", "Fake forex trading"],
+      "indicators": ["investment + profit language", "guaranteed returns", "ROI claims"],
+      "report_to": ["sec.gov.ng", "efcc.gov.ng"]
+    },
+    "GOVT_IMPERSONATION": {
+      "description": "Sites impersonating Nigerian government agencies",
+      "common_targets": ["CBN", "EFCC", "NIMC (NIN)", "JAMB", "WAEC", "FIRS"],
+      "tactics": ["Fake portals collecting NIN/BVN", "Fake arrest warrants", "Fake registration fees"],
+      "indicators": ["agency name in domain", "portal/registration in URL", "non-.gov.ng TLD"],
+      "report_to": ["efcc.gov.ng", "nitda.gov.ng"]
+    }
+  },
+
+  "official_reporting_channels": {
+    "EFCC": {
+      "url": "https://efcc.gov.ng",
+      "email": "info@efcc.gov.ng",
+      "hotline": "0800-CALL-EFCC (0800-2255-3322)"
+    },
+    "CBN Consumer Protection": {
+      "url": "https://www.cbn.gov.ng/supervisory/ConsumerProtection.asp",
+      "email": "cpd@cbn.gov.ng"
+    },
+    "NITDA (Cybercrime)": {
+      "url": "https://nitda.gov.ng",
+      "email": "info@nitda.gov.ng"
+    },
+    "Nigeria Cybercrime Advisory Council": {
+      "url": "https://www.ncac.gov.ng"
+    }
+  }
+}

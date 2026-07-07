@@ -1,0 +1,81 @@
+[tool.briefcase]
+project_name = "Naija Scam Shield"
+bundle = "ng.naijascamshield"
+version = "1.0.0"
+url = "https://github.com/sudopenmark/naija-scam-shield"
+license = "Proprietary"
+author = "Joshua Akadri"
+author_email = "dev@naijascamshield.ng"
+
+sources = [
+    "main",
+    "core",
+    "ui",
+    "database",
+    "reports",
+    "assets",
+]
+
+requires = [
+    "requests>=2.31.0",
+    "python-whois>=0.9.4",
+    "Pillow>=10.2.0",
+    "pyzbar>=0.1.9",
+    "reportlab>=4.1.0",
+]
+
+[tool.briefcase.app.naijascamshield]
+formal_name = "Naija Scam Shield"
+description = "Protect yourself from Nigerian online scams"
+long_description = """
+Naija Scam Shield is a commercial mobile security application that helps
+Nigerian internet users detect phishing sites, fake banking portals,
+fraudulent fintech pages, and other online scams in real time.
+"""
+icon = "assets/icon"
+sources = ["main", "core", "ui", "database", "reports"]
+license = "Proprietary"
+
+[tool.briefcase.app.naijascamshield.macOS]
+requires = ["PyQt6>=6.6.0"]
+
+[tool.briefcase.app.naijascamshield.linux]
+requires = ["PyQt6>=6.6.0"]
+system_requires = [
+    "libzbar0",
+    "libgl1",
+]
+
+[tool.briefcase.app.naijascamshield.windows]
+requires = ["PyQt6>=6.6.0"]
+
+[tool.briefcase.app.naijascamshield.android]
+requires = [
+    "kivy>=2.3.0",
+    "requests>=2.31.0",
+]
+build_gradle_dependencies = [
+    "com.google.zxing:core:3.5.1",
+]
+# ── Android SDK version targeting ────────────────────────────────────────────
+# min_sdk_version  : lowest Android OS the APK will install on.
+#                     23 = Android 6.0 "Marshmallow" (released 2015).
+# target_sdk_version: SDK the app is built/tested against.
+#                     34 = Android 14 — required for new Play Store submissions
+#                     as of August 2024. Briefcase/Gradle will still produce
+#                     an APK that installs and runs on devices as old as
+#                     Android 6.0 because of min_sdk_version above.
+min_sdk_version = 23
+target_sdk_version = 34
+compile_sdk_version = 34
+build_gradle_extra_content = """
+android {
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 34
+        compileSdkVersion 34
+    }
+}
+"""
+# Note: Android uses a Kivy-based UI (see ui/mobile_app.py)
+# The PyQt6 desktop UI is automatically replaced with Kivy on Android

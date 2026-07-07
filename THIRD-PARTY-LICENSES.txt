@@ -1,0 +1,186 @@
+================================================================================
+  NAIJA SCAM SHIELD — THIRD-PARTY LICENSE DISCLOSURES
+================================================================================
+
+  This file lists the third-party open-source software components
+  bundled with or used by Naija Scam Shield, and their license terms.
+  This software remains the proprietary property of Joshua Akadri as
+  described in LICENSE; the components below are NOT covered by that
+  proprietary license and instead retain their own original licenses.
+
+  ⚠ IMPORTANT — PyQt6 COMMERCIAL DISTRIBUTION NOTICE ⚠
+  --------------------------------------------------------------------
+  PyQt6 is dual-licensed by Riverbank Computing under:
+    (a) GNU General Public License v3 (GPL v3), OR
+    (b) a paid Commercial License from Riverbank Computing.
+
+  If you intend to distribute Naija Scam Shield's DESKTOP build
+  (Windows/Linux/macOS) as CLOSED-SOURCE commercial software, you
+  MUST purchase a commercial PyQt6 license from Riverbank Computing:
+
+      https://www.riverbankcomputing.com/commercial/pyqt
+
+  Distributing a closed-source application that links against the
+  GPL-licensed version of PyQt6 without a commercial license is a
+  violation of the GPL v3 and may expose Licensee to legal liability
+  from Riverbank Computing. This is Licensee's responsibility to
+  resolve — it is NOT covered or indemnified by the Naija Scam Shield
+  commercial license.
+
+  The Android build uses Kivy (MIT License) instead of PyQt6 and is
+  NOT subject to this restriction.
+
+================================================================================
+  COMPONENT LICENSE SUMMARY
+================================================================================
+
+  Component         | License                  | Commercial use note
+  -------------------|---------------------------|------------------------------
+  PyQt6              | GPL v3 / Commercial       | See notice above — requires
+                      | (Riverbank Computing)     | paid license for closed-source
+  PyQt6-Qt6          | LGPL v3 (Qt6 itself)      | Generally permits closed-source
+                      |                           | use under LGPL terms (dynamic
+                      |                           | linking) — verify with counsel
+  Kivy               | MIT License               | Permitted, attribution required
+  requests           | Apache License 2.0        | Permitted, attribution required
+  urllib3            | MIT License               | Permitted, attribution required
+  certifi            | Mozilla Public License 2.0| Permitted
+  python-whois       | MIT License               | Permitted, attribution required
+  opencv-python       | Apache License 2.0        | Permitted, attribution required
+  pyzbar             | MIT License               | Permitted, attribution required
+  Pillow             | HPND / MIT-CMU License    | Permitted, attribution required
+  reportlab          | BSD-derived (custom)      | Free for most use; reportlab
+                      |                           | PLUS features require separate
+                      |                           | commercial license from the
+                      |                           | ReportLab company if used
+  briefcase          | BSD 3-Clause              | Build tool only — not bundled
+                      |                           | in final app, no obligation
+  pyinstaller        | GPL v2 (bootloader excepted)| Build tool only — PyInstaller's
+                      |                           | bootloader is explicitly
+                      |                           | exempted from GPL for the
+                      |                           | resulting compiled EXE
+  zxing (Android)    | Apache License 2.0        | Permitted, attribution required
+
+================================================================================
+  FULL LICENSE TEXTS
+================================================================================
+
+  --------------------------------------------------------------------
+  MIT License (applies to: Kivy, urllib3, python-whois, pyzbar, and
+  other MIT-licensed dependencies)
+  --------------------------------------------------------------------
+
+  Permission is hereby granted, free of charge, to any person
+  obtaining a copy of this software and associated documentation
+  files (the "Software"), to deal in the Software without
+  restriction, including without limitation the rights to use, copy,
+  modify, merge, publish, distribute, sublicense, and/or sell copies
+  of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+  ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+  --------------------------------------------------------------------
+  Apache License 2.0 (applies to: requests, opencv-python, zxing)
+  --------------------------------------------------------------------
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at:
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied. See the License for the specific language governing
+  permissions and limitations under the License.
+
+  --------------------------------------------------------------------
+  GNU General Public License v3 (applies to: PyQt6, unless a
+  commercial license is purchased from Riverbank Computing)
+  --------------------------------------------------------------------
+
+  Full text: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+  Summary of obligation relevant to this project: if Naija Scam
+  Shield's desktop build links against the GPL-licensed edition of
+  PyQt6 and is distributed to third parties, the COMBINED WORK
+  (i.e., Naija Scam Shield itself) must also be licensed under GPL v3
+  terms, meaning its source code must be made available to anyone who
+  receives the binary. This is INCOMPATIBLE with closed-source
+  commercial distribution unless a Riverbank commercial PyQt6 license
+  is purchased, which removes this requirement.
+
+  --------------------------------------------------------------------
+  GNU Lesser General Public License v3 (applies to: Qt6 libraries
+  themselves, distinct from PyQt6's own Python bindings license)
+  --------------------------------------------------------------------
+
+  Full text: https://www.gnu.org/licenses/lgpl-3.0.en.html
+
+  Qt6 (the underlying C++ framework PyQt6 binds to) is separately
+  available under LGPL v3, which is generally compatible with
+  closed-source distribution provided dynamic linking and certain
+  notice requirements are met. This is distinct from the PyQt6
+  Python-binding layer's own GPL/commercial dual license discussed
+  above — both layers must be considered independently.
+
+  --------------------------------------------------------------------
+  BSD-derived License (applies to: reportlab open-source edition)
+  --------------------------------------------------------------------
+
+  Copyright (c) 2000-2024, ReportLab Inc.
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met: redistributions of source code must retain the above
+  copyright notice; redistributions in binary form must reproduce the
+  above copyright notice in the documentation and/or other materials
+  provided with the distribution. Neither the name of ReportLab nor
+  the names of its contributors may be used to endorse or promote
+  products derived from this software without specific prior written
+  permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED.
+
+================================================================================
+  HOW TO COMPLY WHEN DISTRIBUTING THIS APP COMMERCIALLY
+================================================================================
+
+  1. Desktop build (PyQt6) — closed source commercial distribution:
+     → Purchase a Riverbank PyQt6 commercial license, OR
+     → Release Naija Scam Shield's own source under GPL v3, OR
+     → Replace PyQt6 with an LGPL-only alternative (e.g., PySide6,
+       which uses the same Qt6 but under LGPL terms with no GPL
+       trap) before commercial closed-source sale.
+
+       NOTE: PySide6 is generally the safer choice for commercial
+       closed-source desktop distribution and is largely
+       API-compatible with PyQt6. Consider migrating
+       `from PyQt6.QtWidgets import ...` to
+       `from PySide6.QtWidgets import ...` if you do not wish to
+       purchase a Riverbank license.
+
+  2. Android build (Kivy) — no special action required; MIT-licensed.
+
+  3. Retain this THIRD-PARTY-LICENSES.txt file and the attribution
+     notices above in any distributed copy of the software, as
+     required by the MIT/Apache/BSD components listed.
+
+  4. Consult a licensed attorney before commercial launch to confirm
+     compliance for your specific distribution model and jurisdiction.
+
+================================================================================
